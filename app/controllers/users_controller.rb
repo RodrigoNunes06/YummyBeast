@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   
   before_action :authorize_user, only: [:show]
+  before_action :admin_only, only: [:index]
 
   def home
     @name = current_user ? @current_user.username : "Stranger"
   end
 
   def index
-
+    @users = User.all.limit(20)
   end
 
   def new

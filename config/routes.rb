@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
-  resources :users, only: [:index]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'users#home'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+  get '/profile' => 'users#show'
+  get '/users' => 'users#index'
+
+  get '/login' => 'sessions#new'
+  post '/login' =>  'sessions#create'
+  delete '/logout' => 'sessions#destroy'
+  
 end

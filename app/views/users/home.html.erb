@@ -8,20 +8,16 @@
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
-      <button type="button" class="btn btn-default navbar-btn"><%= link_to "Sign up", "/signup" %></button>
-      <button type="button" class="btn btn-default navbar-btn"><%= link_to "My profile", "/profile" %></button>
-      <button type="button" class="btn btn-default navbar-btn"><%= link_to "Login", "/login" %><br></button>
-      <button type="button" class="btn btn-default navbar-btn"><%= link_to "Logout", "/logout", :method => :delete %></button>
+      <%= link_to "Sign up", "/signup" , :class => 'btn btn-default navbar-btn' %>
+      <%= link_to "My profile", "/profile" , :class => 'btn btn-default navbar-btn'%>
+      <%= link_to "Login", "/login", :class => 'btn btn-default navbar-btn' %>
+      <%= link_to "Logout", "/logout", :method => :delete , :class => 'btn btn-default navbar-btn' %>
     </div>
   </nav>
   <div class="jumbotron" style="padding-top: 50px">
     <div class="container">
       <h1>Hello, <%= @name %>!</h1>
-      <br>
-      <br>
-      <br>
-      <br>
-      <form class="navbar-form navbar-left" role="search">
+      <form class="navbar-form navbar-left search" role="search">
         <div class="form-group">
           <input type="text" class="form-control" style="width:300px" placeholder="Search for a restaurant or food...">
         </div>
@@ -31,7 +27,8 @@
       <br>
       <br>
     </div>
-  </body>
+  </div>
+</body>
 </html>
 
 

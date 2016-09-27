@@ -35,6 +35,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # React
 gem 'react-rails'
 
+gem 'yelp'
+
 # Figaro for managing configuration values
 gem 'figaro'
 

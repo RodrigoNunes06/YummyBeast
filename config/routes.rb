@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'users#home'
 
+  post '/search' => 'apis#search'
+
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   get '/profile' => 'users#show'

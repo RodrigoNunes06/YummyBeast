@@ -15,4 +15,54 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "users"
+@import "users";
+
+
+
+
+.main {
+  background-image: url("yummybeast.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right top;
+  background-attachment: fixed;
+  background-color: #f00036;
+  height:500px;
+}
+
+.navbar{
+  margin-bottom: 0px;
+  background-color: transparent;
+  border-width: 0px;
+}
+
+.navbar-btn {
+  background-color: transparent;
+}
+
+.navbar a {
+  color: white;
+}
+
+.jumbotron h1 {
+  color:white;
+}
+
+.search-form {
+  margin-top: 100px;
+  width:100%;
+}
+
+.restaurant-pic {
+  width: 100px;
+  height:100px;
+}
+
+#yelp-logo {
+  width:80px;
+  height:50px;
+}
+
+#search-results {
+  margin: auto;
+}

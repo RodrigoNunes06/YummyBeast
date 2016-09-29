@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       WelcomeMailer.welcome_email(user).deliver_now
       redirect_to '/'
     else
+      flash[:message] = 'Email already taken. Please fill all the information'
       redirect_to '/signup'
     end
   end 

@@ -5,7 +5,7 @@
   <title>Yummy Beast</title>
 </head>
 
-<body style="background-color: #EED8CF">
+<body>
 
   <div class="jumbotron main">
     <div class="container">
@@ -19,22 +19,18 @@
         <h1 class="hello">Hello, <%= @name %>!</h1> 
       </div>
       <div clas="row">
-
         <div class="col-sm-6 col-md-6">
-
           <form class="navbar-form navbar-left search-form-js"  role="search">
-
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Search for a restaurant or food..." name="term"><button type="submit" class="btn btn-default">Search</button> </input>
+              <input type="text" class="form-control" placeholder="Search for a restaurant or food..." name="term" style="width:250px"><button type="submit" class="btn btn-default">Search</button> </input>
               <input name="authenticity_token" type="hidden" value=<%= form_authenticity_token %> ></input>
             </div> 
-
           </form>
         </div>  
       </div>
     </div>
   </div>
-  <div class="container" style="background-color: white" >
+  <div class="container" style="position:relative">
     <div clas="row">
       <!-- <div id="search-results" class="col-sm-4 col-md-4">  -->  
       <!-- </div>-->     
@@ -43,6 +39,11 @@
     </div>
   </div>  
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDBrKTCYHntDjPiuZbANTYBCeHk4ZB79cU"></script>
+  <footer>
+    <p>Created by: Rodrigo Nunes</p>
+    <p>Contact information: <a href="mailto:rodrigo.nunes06@gmail.com">
+    rodrigo.nunes06@gmail.com</a>.</p>
+  </footer>
 </body>
 </html>
 

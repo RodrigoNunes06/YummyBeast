@@ -16,7 +16,8 @@ function onLocation(position){
     lng: position.coords.longitude
   };
   console.log(myPosition);
-  // createMap(myPosition);
+  
+  createMap(myPosition);
   // setupAutocomplete();
 }
 

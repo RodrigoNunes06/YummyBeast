@@ -28,8 +28,6 @@ $(document).on('submit', '.search-form-js', function(event) {
 
   deleteMarkers()
 
-  createMap(myPosition)
-
   $.ajax({
     url: '/search',
     type: 'post',
@@ -45,32 +43,34 @@ $(document).on('submit', '.search-form-js', function(event) {
       // $('#search-results').append('<h1 class="yummy-found">Yummy beast found the following options:</h1>')
 
       $(response).each(function (index, restaurant) {
+        if (restaurant.rating > 0) {
 
-        var name = restaurant.name
-        var image = restaurant.image_url
-        var rating = restaurant.rating_img_url_large
-        var location = {
-          lat: restaurant.location.coordinate.latitude,
-          lng: restaurant.location.coordinate.longitude
-        }
-        var content = `  
-          <div class="thumbnail">
-            <img class="restaurant-pic" src="`+ image + `">
-            <div class="caption">
-              <h3>`+ name +`</h3>
-              <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
-              <img src="` + rating + `" >
+          var name = restaurant.name
+          var image = restaurant.image_url
+          var rating = restaurant.rating_img_url_large
+          var location = {
+            lat: restaurant.location.coordinate.latitude,
+            lng: restaurant.location.coordinate.longitude
+          }
+          var content = `  
+            <div class="thumbnail">
+              <img class="restaurant-pic" src="`+ image + `">
+              <div class="caption">
+                <h3>`+ name +`</h3>
+                <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
+                <img src="` + rating + `" >
+              </div>
             </div>
-          </div>
-        `;
+          `;
 
-        createMarker(location, name, image, rating, content)
-      })
+          createMarker(location, content)
+        }
+      });
     }
   });
 });
 
-function createMarker(position, name, image, rating, content) {
+function createMarker(position, content) {
 
   var marker = new google.maps.Marker({
     position: position,

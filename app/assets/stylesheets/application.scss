@@ -17,6 +17,10 @@
 @import "bootstrap";
 @import "users";
 
+body{
+/*  background-image: url("background.jpg");
+  background-color: transparent;*/
+}
 
 .main {
   background-image: url("yummybeast.jpg");
@@ -26,6 +30,7 @@
   background-attachment: fixed;
   background-color: #e00036;
   height: 300px;
+  box-shadow: 0 0 5px 5px #888888;
 }
 
 .navbar{
@@ -61,13 +66,18 @@
 }
 
 #map {
- /* position: absolute;
-  right: 0px;
-  top: 0px;
-  bottom:0px;
-  display: block;
-  height: 2000px;*/
-  height:1000px;
-  width:100%;
-  margin:0;
+  height:800px;
+  /*border: 1px solid black;*/
+  margin-bottom: 30px;
+  padding: 0;
+  box-shadow: 0 0 2px 2px #888888;
+}
+
+footer {
+  background-color: #263238;
+  color: white;
+  height: 100px;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  box-shadow: 0 0 2px 2px #888888;
 }

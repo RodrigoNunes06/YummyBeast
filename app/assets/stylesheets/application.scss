@@ -18,20 +18,17 @@
 @import "users";
 
 
-
-
 .main {
   background-image: url("yummybeast.jpg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
   background-attachment: fixed;
-  background-color: #f00036;
-  height:500px;
+  background-color: #e00036;
+  height: 300px;
 }
 
 .navbar{
-  margin-bottom: 0px;
   background-color: transparent;
   border-width: 0px;
 }
@@ -48,10 +45,6 @@
   color:white;
 }
 
-.search-form {
-  margin-top: 100px;
-  width:100%;
-}
 
 .restaurant-pic {
   width: 100px;
@@ -64,5 +57,17 @@
 }
 
 #search-results {
-  margin: auto;
+  margin: auto; 
+}
+
+#map {
+ /* position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom:0px;
+  display: block;
+  height: 2000px;*/
+  height:1000px;
+  width:100%;
+  margin:0;
 }

@@ -2,13 +2,15 @@ class ApiService
   def initialize(params)
     @term = params[:term]
     @limit = 16
-    @location = "Barcelona"
+    @latitude = params[:latitude]
+    @longitude = params[:longitude]
   end
 
   def search
     begin
-      parameters = { term: @term, limit: @limit }
-      results = Yelp.client.search(@location, parameters).businesses
+      parameters = { term: @term, limit: @limit, radius_filter: 800 }
+      coordinates = {latitude:@latitude,longitude:@longitude}
+      results = Yelp.client.search_by_coordinates(coordinates, parameters).businesses
     rescue
 
       # handle_error

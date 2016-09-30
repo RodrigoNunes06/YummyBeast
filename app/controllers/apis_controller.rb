@@ -10,7 +10,9 @@ class ApisController < ApplicationController
 
   def search
     results = ApiService.new({
-      term: params[:term]
+      term: params[:term],
+      latitude: params[:coordinates][:lat],
+      longitude: params[:coordinates][:lng]
     }).search
 
     render json: results

@@ -1,4 +1,5 @@
-
+var markers =[];
+var map;
 var myPosition;
 var infowindow;
 
@@ -16,7 +17,7 @@ function onLocation(position){
     lng: position.coords.longitude
   };
   console.log(myPosition);
-  
+
   createMap(myPosition);
   // setupAutocomplete();
 }
@@ -43,6 +44,42 @@ function createUserMarker(position) {
   })
 
 };
+
+function createMarker(position, content) {
+
+  var marker = new google.maps.Marker({
+    position: position,
+    map: map,
+  })
+
+  markers.push(marker)
+  google.maps.event.addListener(marker, 'mouseover', function() {
+    infowindow.setContent(content);
+    infowindow.open(map, this);
+  }); 
+
+};
+
+// Sets the map on all markers in the array.
+function setMapOnAll(map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map);
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers() {
+  setMapOnAll(null);
+}
+
+// Deletes all markers in the array by removing references to them.
+function deleteMarkers() {
+  clearMarkers();
+  markers = [];
+}
+
+
+
 
 
 

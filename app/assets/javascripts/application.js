@@ -18,13 +18,15 @@
 //= require react_ujs
 //= require components
 //= require_tree .
-var markers =[];
-var map;
+
 
 
 $(document).on('submit', '.search-form-js', function(event) {
   
   event.preventDefault();
+
+  $('#map-container').removeClass('hidden')
+  createMap(myPosition)
 
   deleteMarkers()
 
@@ -47,20 +49,20 @@ $(document).on('submit', '.search-form-js', function(event) {
 
           var name = restaurant.name
           var image = restaurant.image_url
-          var rating = restaurant.rating_img_url_large
+          var rating = restaurant.rating_img_url
           var location = {
             lat: restaurant.location.coordinate.latitude,
             lng: restaurant.location.coordinate.longitude
           }
           var content = `  
-            <div class="thumbnail">
-              <img class="restaurant-pic" src="`+ image + `">
+            
               <div class="caption">
                 <h3>`+ name +`</h3>
+                <br>
                 <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
                 <img src="` + rating + `" >
               </div>
-            </div>
+            
           `;
 
           createMarker(location, content)
@@ -69,39 +71,4 @@ $(document).on('submit', '.search-form-js', function(event) {
     }
   });
 });
-
-function createMarker(position, content) {
-
-  var marker = new google.maps.Marker({
-    position: position,
-    map: map,
-  })
-
-  markers.push(marker)
-  google.maps.event.addListener(marker, 'mouseover', function() {
-    infowindow.setContent(content);
-    infowindow.open(map, this);
-  }); 
-
-};
-
-// Sets the map on all markers in the array.
-function setMapOnAll(map) {
-  for (var i = 0; i < markers.length; i++) {
-    markers[i].setMap(map);
-  }
-}
-
-// Removes the markers from the map, but keeps them in the array.
-function clearMarkers() {
-  setMapOnAll(null);
-}
-
-// Deletes all markers in the array by removing references to them.
-function deleteMarkers() {
-  clearMarkers();
-  markers = [];
-}
-
-
 

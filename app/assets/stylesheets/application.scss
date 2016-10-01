@@ -22,6 +22,19 @@ body{
   background-color: transparent;*/
 }
 
+header {
+  background-color: #e00036;
+  width:100%;
+  height: 45px;
+  position: fixed;
+  z-index: 1;
+}
+
+.logo {
+  position: left top;
+  height: 50px;
+}
+
 .main {
   background-image: url("yummybeast.jpg");
   background-repeat: no-repeat;
@@ -30,12 +43,14 @@ body{
   background-attachment: fixed;
   background-color: #e00036;
   height: 300px;
-  box-shadow: 0 0 5px 5px #888888;
+  box-shadow: 0 5px 5px 0px #888888;
 }
 
 .navbar{
   background-color: transparent;
   border-width: 0px;
+  position: right top;
+  padding-left: 50px;
 }
 
 .navbar-btn {
@@ -61,8 +76,15 @@ body{
   height:50px;
 }
 
-#search-results {
-  margin: auto; 
+.steps {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.steps img {
+  height: 100px; 
+  margin-bottom: 15px
 }
 
 #map {
@@ -71,12 +93,15 @@ body{
   margin-bottom: 30px;
   padding: 0;
   box-shadow: 0 0 2px 2px #888888;
+  z-index: 0;
 }
+
+
 
 footer {
   background-color: #263238;
   color: white;
-  height: 100px;
+  height: 80px;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   box-shadow: 0 0 2px 2px #888888;

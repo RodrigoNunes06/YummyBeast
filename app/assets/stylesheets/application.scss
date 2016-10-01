@@ -36,7 +36,7 @@ header {
 }
 
 .main {
-  background-image: url("yummybeast.jpg");
+  /*background-image: url("yummybeast.jpg");*/
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
@@ -76,6 +76,21 @@ header {
   height:50px;
 }
 
+.how-works {
+  text-align: center;
+  color: #666;
+}
+
+.lines {
+  display: block;
+  height: 6px;
+  width: 300px;
+  margin: 0 auto;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
 .steps {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -88,7 +103,7 @@ header {
 }
 
 #map {
-  height:800px;
+  height:700px;
   /*border: 1px solid black;*/
   margin-bottom: 30px;
   padding: 0;

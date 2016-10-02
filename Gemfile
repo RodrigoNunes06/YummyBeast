@@ -38,6 +38,9 @@ gem 'react-rails'
 #Yelp gem
 gem 'yelp'
 
+#google places api gem
+gem 'google_places'
+
 # Figaro for managing configuration values
 gem 'figaro'
 

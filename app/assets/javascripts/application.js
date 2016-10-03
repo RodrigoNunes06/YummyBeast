@@ -39,35 +39,31 @@ $(document).on('submit', '.search-form-js', function(event) {
       coordinates: myPosition
     },
     success: function(response) {
-      
-      $('#search-results').empty()
+      console.log(response)
+      // $(response).each(function (index, restaurant) {
+      //   if (restaurant.rating > 0) {
 
-      // $('#search-results').append('<h1 class="yummy-found">Yummy beast found the following options:</h1>')
-
-      $(response).each(function (index, restaurant) {
-        if (restaurant.rating > 0) {
-
-          var name = restaurant.name
-          var image = restaurant.image_url
-          var rating = restaurant.rating_img_url
-          var location = {
-            lat: restaurant.location.coordinate.latitude,
-            lng: restaurant.location.coordinate.longitude
-          }
-          var content = `  
+      //     var name = restaurant.name
+      //     var image = restaurant.image_url
+      //     var rating = restaurant.rating_img_url
+      //     var location = {
+      //       lat: restaurant.location.coordinate.latitude,
+      //       lng: restaurant.location.coordinate.longitude
+      //     }
+      //     var content = `  
             
-              <div class="caption">
-                <h3>`+ name +`</h3>
-                <br>
-                <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
-                <img src="` + rating + `" >
-              </div>
+      //         <div class="caption">
+      //           <h3>`+ name +`</h3>
+      //           <br>
+      //           <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
+      //           <img src="` + rating + `" >
+      //         </div>
             
-          `;
+      //     `;
 
-          createMarker(location, content)
-        }
-      });
+      //     createMarker(location, content)
+      //   }
+      // });
     }
   });
 });

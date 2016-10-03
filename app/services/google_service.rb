@@ -1,11 +1,14 @@
 class GoogleService < ApiService
 
-  def initialize
-    @client = GooglePlaces::Client.new(ENV['GOOGLE_PLACES_KEY'])
-  end
+  # ENV['GOOGLE_PLACES_KEY']
 
   def search
-    result_google = @client.spots(@latitude,@longitude, :types => ['restaurant','food'], :radius => 1000)
+    begin
+      results_google = @client.spots(@latitude.to_f, @longitude.to_f,:name => @term, :types => 'restaurant', :radius => 1000)
+    rescue
+      # handle_error
+      false
+    end
   end
 
 end

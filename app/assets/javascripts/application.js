@@ -19,52 +19,71 @@
 //= require components
 //= require_tree .
 
-
+var yelpApi
+var googleApi
 
 $(document).on('submit', '.search-form-js', function(event) {
   
   event.preventDefault();
 
   $('#map-container').removeClass('hidden')
+
   createMap(myPosition)
 
-  deleteMarkers()
+  // deleteMarkers()
 
-  $.ajax({
-    url: '/search',
-    type: 'post',
-    data: {
-      term: $('[name=term]').val(),
-      // from maps.js I get myposition,
-      coordinates: myPosition
-    },
-    success: function(response) {
-      console.log(response)
-      // $(response).each(function (index, restaurant) {
-      //   if (restaurant.rating > 0) {
+  $.when(
 
-      //     var name = restaurant.name
-      //     var image = restaurant.image_url
-      //     var rating = restaurant.rating_img_url
-      //     var location = {
-      //       lat: restaurant.location.coordinate.latitude,
-      //       lng: restaurant.location.coordinate.longitude
-      //     }
-      //     var content = `  
-            
-      //         <div class="caption">
-      //           <h3>`+ name +`</h3>
-      //           <br>
-      //           <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
-      //           <img src="` + rating + `" >
-      //         </div>
-            
-      //     `;
+    $.ajax({
+      url: '/google',
+      type: 'post',
+      data: {
+        term: $('[name=term]').val(),
+        // from maps.js I get myposition,
+        coordinates: myPosition
+      },
+      success: function(response) {
+        googleApi = response
+      }
+    }),
+    
+    $.ajax({
+      url: '/yelp',
+      type: 'post',
+      data: {
+        term: $('[name=term]').val(),
+        // from maps.js I get myposition,
+        coordinates: myPosition
+      },
+      success: function(response) {
+        yelpApi = response
+      } 
+    })
+  ).then(function() {
+    $(googleApi).each(function(index,restaurant) {
 
-      //     createMarker(location, content)
-      //   }
-      // });
-    }
-  });
+      var location = {
+        lat: restaurant.lat,
+        lng: restaurant.lng
+      }
+
+      var name = restaurant.name;
+
+      var rating = restaurant.rating;
+
+      var content = `  
+           <div class="caption">
+             <h3>`+ name +`</h3>
+             <br>
+             <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
+             <img src="` + rating + `" >
+           </div>
+       `;
+
+      createMarker(location, content)
+    })
+    });
+
+  
 });
 

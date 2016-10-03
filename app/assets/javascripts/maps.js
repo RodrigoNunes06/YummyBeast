@@ -37,10 +37,16 @@ function createMap(position){
 
 
 function createUserMarker(position) {
+  var userIcon = {
+    url: "http://maps.coj.net/DuvalProperty/images/StreetViewCircle.png",
+    scaledSize: new google.maps.Size(50, 50), // scaled size
+    origin: new google.maps.Point(0, 0), // origin
+    anchor: new google.maps.Point(0, 30) // anchor
+  };
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+    icon: userIcon
   })
 
 };

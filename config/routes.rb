@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   root to: 'users#home'
 
-  post '/search' => 'apis#search'
+  post '/google' => 'apis#google'
+  post '/yelp'   => 'apis#yelp'
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'

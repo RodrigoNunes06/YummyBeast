@@ -1,9 +1,9 @@
 class ApiService
 
   def initialize(params)
-    
+
     @term = params[:term]
-    @limit = 20
+    @limit = 50
     @latitude = params[:latitude]
     @longitude = params[:longitude]
   

@@ -18,10 +18,11 @@ class GoogleService < ApiService
   private
 
   def map_results(results)
+    
     results_google = []
 
     results.each do |restaurant|
-      
+
       results_google.push({
         name: restaurant.name, 
         rating: restaurant.rating, 

@@ -19,8 +19,7 @@
 //= require components
 //= require_tree .
 
-var yelpApi
-var googleApi
+var results
 
 $(document).on('submit', '.search-form-js', function(event) {
   
@@ -30,12 +29,10 @@ $(document).on('submit', '.search-form-js', function(event) {
 
   createMap(myPosition)
 
-  // deleteMarkers()
-
   $.when(
 
     $.ajax({
-      url: '/google',
+      url: '/search',
       type: 'post',
       data: {
         term: $('[name=term]').val(),
@@ -43,47 +40,38 @@ $(document).on('submit', '.search-form-js', function(event) {
         coordinates: myPosition
       },
       success: function(response) {
-        googleApi = response
+        results = response
       }
-    }),
+    })
     
-    $.ajax({
-      url: '/yelp',
-      type: 'post',
-      data: {
-        term: $('[name=term]').val(),
-        // from maps.js I get myposition,
-        coordinates: myPosition
-      },
-      success: function(response) {
-        yelpApi = response
-      } 
-    })
+    
   ).then(function() {
-    $(googleApi).each(function(index,restaurant) {
+    console.log(results)
+    $(results).each(function(index,restaurant) {
+      if (restaurant.rating > 0) {
 
-      var location = {
-        lat: restaurant.lat,
-        lng: restaurant.lng
+        var location = {
+          lat: restaurant.lat,
+          lng: restaurant.lng
+        }
+
+        var name = restaurant.name;
+
+        var rating = restaurant.rating;
+
+        var content = `  
+             <div class="caption">
+               <p>`+ name +`</p>
+               <br>
+               <img id="yelp-logo" style="width:35px;height:30px" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
+               <p>` + rating + ` </p>
+             </div>
+         `;
+
+        createMarker(location, content)
       }
-
-      var name = restaurant.name;
-
-      var rating = restaurant.rating;
-
-      var content = `  
-           <div class="caption">
-             <h3>`+ name +`</h3>
-             <br>
-             <img id="yelp-logo" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" >
-             <img src="` + rating + `" >
-           </div>
-       `;
-
-      createMarker(location, content)
     })
-    });
-
-  
+  }); 
 });
+
 

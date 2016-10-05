@@ -25,7 +25,7 @@ class ApisController < ApplicationController
 
     final_results = find_duplicate(results)
 
-    if params[:recommend] = true
+    if params[:recommend] == "recommend"
       render json: final_results.first(3)
     else  
       render json: final_results

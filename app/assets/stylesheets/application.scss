@@ -48,6 +48,10 @@ header {
   position: relative;
 }
 
+.hello{
+  margin-left: 27px
+}
+
 .navbar{
   background-color: transparent;
   border-width: 0px;
@@ -92,16 +96,6 @@ header {
   color: #666;
 }
 
-.lines {
-  display: block;
-  height: 6px;
-  width: 300px;
-  margin: 0 auto;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  box-sizing: border-box;
-}
-
 .steps {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -109,7 +103,8 @@ header {
 }
 
 .steps img {
-  height: 100px; 
+  height: 80px;
+  width: 80px; 
   margin-bottom: 15px
 }
 

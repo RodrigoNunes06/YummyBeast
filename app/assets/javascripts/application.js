@@ -35,6 +35,8 @@ $(document).on('submit', '.search-form-js', function(event) {
 
   $('#map-container').removeClass('hidden')
 
+  $(document).scrollTop(700)
+
   createMap(myPosition)
 
   $.when(

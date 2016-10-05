@@ -47,7 +47,9 @@ function createUserMarker(position) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
-    icon: userIcon
+    icon: userIcon,
+    animation: google.maps.Animation.DROP,
+    draggable: true
   })
 
 };
@@ -57,6 +59,7 @@ function createMarker(position, content) {
   var marker = new google.maps.Marker({
     position: position,
     map: map,
+    animation: google.maps.Animation.DROP
   })
 
   markers.push(marker)

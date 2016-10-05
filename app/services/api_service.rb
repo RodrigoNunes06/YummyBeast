@@ -6,10 +6,10 @@ class ApiService
     @limit = 20
     @latitude = params[:latitude]
     @longitude = params[:longitude]
-    if params[:radius]
+    if params[:radius] != ""
       @radius = params[:radius].to_i
     else
-      @radius = 1000
+      @radius = 800
     end 
   
   end

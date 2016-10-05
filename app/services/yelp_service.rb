@@ -16,6 +16,7 @@ class YelpService < ApiService
 
       results = Yelp.client.search_by_coordinates(coordinates, parameters).businesses
       
+
       map_results(results)
 
     rescue
@@ -32,7 +33,7 @@ class YelpService < ApiService
     results_yelp = []
 
     results.each do |restaurant|
-      if restaurant.rating > 0 && restaurant.url.present? && restaurant.rating_img_url.present? && restaurant.location.coordinate.latitude.present?
+      if restaurant.rating && restaurant.location.coordinate.latitude
         results_yelp.push({
           name: restaurant.name, 
           rating: restaurant.rating, 

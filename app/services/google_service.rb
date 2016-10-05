@@ -22,7 +22,8 @@ class GoogleService < ApiService
     results_google = []
 
     results.each do |restaurant|
-      if restaurant.name && restaurant.rating && restaurant.lat
+
+      if restaurant.name && restaurant.rating
         results_google.push({
           name: restaurant.name, 
           rating: restaurant.rating, 
@@ -32,6 +33,7 @@ class GoogleService < ApiService
           url: "https://www.google.es/#q=#{restaurant.name}"
         })
       end
+
     end
 
     results_google

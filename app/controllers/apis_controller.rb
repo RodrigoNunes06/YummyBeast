@@ -63,20 +63,21 @@ class ApisController < ApplicationController
     dlon = (place1[:lng] - place2[:lng]).abs 
     dlat = (place1[:lat] - place2[:lat]).abs
 
-    dlon < minimum_difference && dlat < minimum_difference
+    dlon < minimum_difference && dlat < minimum_difference && place1[:provider] != place2[:provider]
     
   end
 
   def merge_coincidence(place1, place2)
     if place1[:rating] && place2[:rating]
-      average = (place1[:rating] + place2[:rating])/2
+     average = (place1[:rating] + place2[:rating])/2 
     else
-      average = "N/A"
+      average = place1[:rating] || place2[:rating]
     end
     ratings = [
       {rating: place1[:rating], provider: place1[:provider] },
       {rating: place2[:rating], provider: place2[:provider] }
     ]
+
     if place1[:provider] == "yelp"
 
       place = {

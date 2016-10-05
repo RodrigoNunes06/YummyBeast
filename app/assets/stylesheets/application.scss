@@ -17,17 +17,19 @@
 @import "bootstrap";
 @import "users";
 
-body{
-/*  background-image: url("background.jpg");
-  background-color: transparent;*/
-}
 
 header {
-  background-color: #e00036;
+  background-color: transparent;
+  opacity: 1%;
   width:100%;
   height: 45px;
   position: fixed;
+  top:0;
   z-index: 1;
+}
+
+.after-scroll {
+  background-color: #e00036;
 }
 
 .logo {
@@ -36,7 +38,7 @@ header {
 }
 
 .main {
-  /*background-image: url("yummybeast.jpg");*/
+ /* background-image: url("yummybeast.jpg");*/
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right top;
@@ -44,17 +46,22 @@ header {
   background-color: #e00036;
   height: 300px;
   box-shadow: 0 5px 5px 0px #888888;
+  position: relative;
 }
 
 .navbar{
   background-color: transparent;
   border-width: 0px;
-  position: right top;
   padding-left: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .navbar-btn {
   background-color: transparent;
+  float:right;
+  margin-top: 5px;
 }
 
 .navbar a {
@@ -65,10 +72,15 @@ header {
   color:white;
 }
 
+.navbar-form {
+  z-index: 2;
+  margin: 40px auto;
+}
 
-.restaurant-pic {
-  width: 100px;
-  height:100px;
+.fix-search {
+  position: fixed;
+  top: 0px;
+  margin-top:5px;
 }
 
 #yelp-logo {

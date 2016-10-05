@@ -23,6 +23,8 @@ class ApisController < ApplicationController
 
   end
 
+
+
   private
 
   def find_duplicate(results)
@@ -40,6 +42,7 @@ class ApisController < ApplicationController
           coincidence = results.slice!(index)
 
           node = merge_coincidence(node, coincidence)
+
         end
       end
 
@@ -52,23 +55,37 @@ class ApisController < ApplicationController
 
 
   def same_coordinates(place1,place2)
+    if place1[:lng] && place2[:lng]
 
-    minimum_difference = 0.00025
+      minimum_difference = 0.00025
 
-    dlon = (place1[:lng] - place2[:lng]).abs 
-    dlat = (place1[:lat] - place2[:lat]).abs
+      dlon = (place1[:lng] - place2[:lng]).abs 
+      dlat = (place1[:lat] - place2[:lat]).abs
 
-    dlon < minimum_difference && dlat < minimum_difference
-
+      dlon < minimum_difference && dlat < minimum_difference
+    else
+      false
+    end
   end
 
   def merge_coincidence(place1, place2)
-    
-    average = (place1[:rating] + place2[:rating])/2
+    if place1[:rating] && place2[:rating]
+      average = (place1[:rating] + place2[:rating])/2
+    else
+      average = "N/A"
+    end
+    ratings = [
+      {rating: place1[:rating], provider: place1[:provider]},
+      {rating: place2[:rating], provider: place2[:provider]},
+    ]
 
-    place1[:rating] = average
-
-    place1
+    place = {
+      name: place1[:name],
+      ratings: ratings,
+      lat: place1[:lat],
+      lng: place1[:lng],
+      average: average
+    }
 
   end
 

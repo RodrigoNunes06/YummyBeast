@@ -29,7 +29,8 @@ function onError(err){
 function createMap(position){
   map = new google.maps.Map($('#map')[0], {
     center: position,
-    zoom: 15
+    zoom: 15,
+    scrollwheel: false
   });
   createUserMarker(position);
   infowindow = new google.maps.InfoWindow()

@@ -27,7 +27,8 @@ class GoogleService < ApiService
         name: restaurant.name, 
         rating: restaurant.rating, 
         lat: restaurant.lat,  
-        lng: restaurant.lng
+        lng: restaurant.lng,
+        provider: "google"
       })
 
     end

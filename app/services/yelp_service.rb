@@ -24,14 +24,15 @@ class YelpService < ApiService
     results_yelp = []
 
     results.each do |restaurant|
-      
-      results_yelp.push({
-        name: restaurant.name, 
-        rating: restaurant.rating, 
-        lat: restaurant.location.coordinate.latitude,  
-        lng: restaurant.location.coordinate.longitude
-      })
-
+      if restaurant.rating > 0
+        results_yelp.push({
+          name: restaurant.name, 
+          rating: restaurant.rating, 
+          lat: restaurant.location.coordinate.latitude,  
+          lng: restaurant.location.coordinate.longitude,
+          provider: "yelp"
+        })
+      end
     end
 
     results_yelp

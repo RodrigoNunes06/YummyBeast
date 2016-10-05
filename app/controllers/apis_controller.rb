@@ -6,13 +6,15 @@ class ApisController < ApplicationController
     results_google = GoogleService.new({
       term: params[:term],
       latitude: params[:coordinates][:lat],
-      longitude: params[:coordinates][:lng]
+      longitude: params[:coordinates][:lng],
+      radius: params[:radius]
     }).search
     
     results_yelp = YelpService.new({
       term: params[:term],
       latitude: params[:coordinates][:lat],
-      longitude: params[:coordinates][:lng]
+      longitude: params[:coordinates][:lng],
+      radius: params[:radius]
     }).search
     
     results = results_google + results_yelp  
@@ -55,17 +57,14 @@ class ApisController < ApplicationController
 
 
   def same_coordinates(place1,place2)
-    if place1[:lng] && place2[:lng]
+  
+    minimum_difference = 0.00025
 
-      minimum_difference = 0.00025
+    dlon = (place1[:lng] - place2[:lng]).abs 
+    dlat = (place1[:lat] - place2[:lat]).abs
 
-      dlon = (place1[:lng] - place2[:lng]).abs 
-      dlat = (place1[:lat] - place2[:lat]).abs
-
-      dlon < minimum_difference && dlat < minimum_difference
-    else
-      false
-    end
+    dlon < minimum_difference && dlat < minimum_difference
+    
   end
 
   def merge_coincidence(place1, place2)

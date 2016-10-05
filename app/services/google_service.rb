@@ -7,7 +7,7 @@ class GoogleService < ApiService
 
   def search
     begin
-      results = @google_client.spots(@latitude.to_f, @longitude.to_f,:name => @term, :types => 'restaurant', :radius => 1000)
+      results = @google_client.spots(@latitude.to_f, @longitude.to_f,:name => @term, :types => 'restaurant', :radius => @radius)
       map_results(results)
     rescue
       # handle_error
@@ -22,16 +22,16 @@ class GoogleService < ApiService
     results_google = []
 
     results.each do |restaurant|
-
-      results_google.push({
-        name: restaurant.name, 
-        rating: restaurant.rating, 
-        lat: restaurant.lat,  
-        lng: restaurant.lng,
-        provider: "google",
-        url: "https://www.google.es/#q=#{restaurant.name}"
-      })
-
+      if restaurant.name && restaurant.rating && restaurant.lat
+        results_google.push({
+          name: restaurant.name, 
+          rating: restaurant.rating, 
+          lat: restaurant.lat,  
+          lng: restaurant.lng,
+          provider: "google",
+          url: "https://www.google.es/#q=#{restaurant.name}"
+        })
+      end
     end
 
     results_google

@@ -3,8 +3,17 @@ class YelpService < ApiService
   def search
     begin
       
-      parameters = { term: @term, limit: @limit, radius_filter: 1000 }
-      coordinates = {latitude:@latitude,longitude:@longitude}
+      parameters = { 
+        term: @term, 
+        limit: @limit, 
+        radius_filter: @radius
+      }
+
+      coordinates = {
+        latitude:@latitude,
+        longitude:@longitude
+      }
+
       results = Yelp.client.search_by_coordinates(coordinates, parameters).businesses
       
       map_results(results)
@@ -23,7 +32,7 @@ class YelpService < ApiService
     results_yelp = []
 
     results.each do |restaurant|
-      if restaurant.rating > 0 && restaurant.url
+      if restaurant.rating > 0 && restaurant.url.present? && restaurant.rating_img_url.present? && restaurant.location.coordinate.latitude.present?
         results_yelp.push({
           name: restaurant.name, 
           rating: restaurant.rating, 

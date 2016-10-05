@@ -38,6 +38,7 @@ $(document).on('submit', '.search-form-js', function(event) {
       type: 'post',
       data: {
         term: $('[name=term]').val(),
+        radius: $('[name=radius]').val(),
         // from maps.js I get myposition,
         coordinates: myPosition
       },

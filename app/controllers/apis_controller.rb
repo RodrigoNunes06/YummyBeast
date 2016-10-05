@@ -75,18 +75,36 @@ class ApisController < ApplicationController
       average = "N/A"
     end
     ratings = [
-      {rating: place1[:rating], provider: place1[:provider]},
-      {rating: place2[:rating], provider: place2[:provider]},
+      {rating: place1[:rating], provider: place1[:provider] },
+      {rating: place2[:rating], provider: place2[:provider] }
     ]
+    if place1[:provider] == "yelp"
 
-    place = {
-      name: place1[:name],
-      ratings: ratings,
-      lat: place1[:lat],
-      lng: place1[:lng],
-      average: average
-    }
+      place = {
+        name: place1[:name],
+        ratings: ratings,
+        lat: place1[:lat],
+        lng: place1[:lng],
+        average: average,
+        rating_image: place1[:rating_image],
+        google_url: place2[:url],
+        yelp_url: place1[:url]
+      }
 
+    else
+
+      place = {
+        name: place1[:name],
+        ratings: ratings,
+        lat: place1[:lat],
+        lng: place1[:lng],
+        average: average,
+        rating_image: place2[:rating_image],
+        google_url: place1[:url],
+        yelp_url: place2[:url]
+      }
+
+    end
   end
 
 

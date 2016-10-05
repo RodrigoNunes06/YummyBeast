@@ -28,7 +28,8 @@ class GoogleService < ApiService
         rating: restaurant.rating, 
         lat: restaurant.lat,  
         lng: restaurant.lng,
-        provider: "google"
+        provider: "google",
+        url: "https://www.google.es/#q=#{restaurant.name}"
       })
 
     end

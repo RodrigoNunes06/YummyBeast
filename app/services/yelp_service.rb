@@ -24,13 +24,15 @@ class YelpService < ApiService
     results_yelp = []
 
     results.each do |restaurant|
-      if restaurant.rating > 0
+      if restaurant.rating > 0 && restaurant.url
         results_yelp.push({
           name: restaurant.name, 
           rating: restaurant.rating, 
           lat: restaurant.location.coordinate.latitude,  
           lng: restaurant.location.coordinate.longitude,
-          provider: "yelp"
+          provider: "yelp",
+          url: restaurant.url,
+          rating_image: restaurant.rating_img_url
         })
       end
     end

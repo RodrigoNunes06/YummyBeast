@@ -19,9 +19,17 @@ class ApisController < ApplicationController
     
     results = results_google + results_yelp  
 
+    results.sort_by! do |restaurant|
+      restaurant[:rating]
+    end
+
     final_results = find_duplicate(results)
 
-    render json: final_results
+    if params[:recommend] = true
+      render json: final_results.first(3)
+    else  
+      render json: final_results
+    end
 
   end
 

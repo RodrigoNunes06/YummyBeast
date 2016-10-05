@@ -20,8 +20,13 @@
 //= require_tree .
 
 var results
+var recommendation = false
 
-
+ $(document).on('ready', function () {
+   $('.recommend').on('click', function () {
+     recommendation = true;
+    });
+ }) 
 
 $(document).on('submit', '.search-form-js', function(event) {
   
@@ -39,6 +44,7 @@ $(document).on('submit', '.search-form-js', function(event) {
       data: {
         term: $('[name=term]').val(),
         radius: $('[name=radius]').val(),
+        recommend: recommendation,
         // from maps.js I get myposition,
         coordinates: myPosition
       },

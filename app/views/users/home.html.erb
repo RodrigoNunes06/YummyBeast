@@ -31,6 +31,7 @@
               <input type="text" class="form-control" placeholder="Search for a kind of food..." name="term" style="width:250px"></input>
               <input type="number" class="form-control" placeholder="Filter by distance in metres..." name="radius" style="width:250px; display: inline-block;">
               <button type="submit" class="btn btn-default">Search</button> 
+              <button type="recommend" class="btn btn-default recommend">YB recommendation</button> 
               <input name="authenticity_token" type="hidden" value=<%= form_authenticity_token %> ></input>
             </div> 
           </form>
@@ -45,7 +46,7 @@
       <div class="col-md-4">
         <img src="assets/type.jpg" >
         <p>
-        Type the food or the name of the restaurant you are looking for.
+        Type the kind of food you are looking and the meters you are willing to move
         </p>
       </div>
       <div class="col-md-4">

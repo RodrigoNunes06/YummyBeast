@@ -9,9 +9,6 @@ if ("geolocation" in navigator){
 }
 
 function onLocation(position){
-  // We can't just directly feed the position into our google map
-  // The objects are formatted differently, google maps is looking for
-  // an object with "lat" and "lng" keys.
   myPosition = {
     lat: position.coords.latitude,
     lng: position.coords.longitude
@@ -26,7 +23,7 @@ function onError(err){
 function createMap(position){
   map = new google.maps.Map($('#map')[0], {
     center: position,
-    zoom: 15,
+    zoom: 14,
     scrollwheel: false
   });
   createUserMarker(position);

@@ -26,7 +26,6 @@ function createMap(position){
     zoom: 14,
     scrollwheel: false
   });
-  createUserMarker(position);
   infowindow = new google.maps.InfoWindow();
 }
 

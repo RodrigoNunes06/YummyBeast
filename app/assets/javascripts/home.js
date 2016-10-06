@@ -11,7 +11,7 @@ $(document).on('submit', '.search-form-js', function(event) {
 
   $('#map-container').removeClass('hidden')
 
-  $(document).scrollTop(700)
+  $(document).scrollTop(600)
 
   createMap(myPosition);
   createUserMarker(myPosition);

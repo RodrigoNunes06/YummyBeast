@@ -43,25 +43,25 @@ function handleSimpleResults (restaurant) {
     if (restaurant.provider == "google") {
       var image = "https://www.seeklogo.net/wp-content/uploads/2014/06/google-logo-vector-free-download.png"
       var rating = (restaurant.rating)/ 5 * 100;
-      var content = `  
-        <div class="info">
-          <p>`+ name +`</p>
-          <br>
-          <a href="`+ restaurant.url +`" target="_blank"><img id="provider-logo" style="width:40px;height:30px" src="`+ image +`"></a>
-          <div class="star-ratings-sprite"><span style="width:`+ rating +`%" class="star-ratings-sprite-rating"></span></div>
-        </div>
-    `;
+    //   var content = `  
+    //     <div class="info">
+    //       <p>`+ name +`</p>
+    //       <br>
+    //       <a href="`+ restaurant.url +`" target="_blank"><img id="provider-logo" style="width:40px;height:30px" src="`+ image +`"></a>
+    //       <div class="star-ratings-sprite"><span style="width:`+ rating +`%" class="star-ratings-sprite-rating"></span></div>
+    //     </div>
+    // `;
     } else {
       var image = "https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png"
       var rating = restaurant.rating_image
-      var content = `  
-        <div class="info">
-          <p>`+ name +`</p>
-          <br>
-          <a href="`+ restaurant.url +`" target="_blank"><img id="provider-logo" style="width:40px;height:30px" src="`+ image +`"></a>
-          <img id="rating-img" src="`+ rating +`">
-        </div>
-    `;
+    //   var content = `  
+    //     <div class="info">
+    //       <p>`+ name +`</p>
+    //       <br>
+    //       <a href="`+ restaurant.url +`" target="_blank"><img id="provider-logo" style="width:40px;height:30px" src="`+ image +`"></a>
+    //       <img id="rating-img" src="`+ rating +`">
+    //     </div>
+    // `;
     }
 
     createMarker(location, content)

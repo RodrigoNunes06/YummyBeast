@@ -14,7 +14,10 @@ function handleMergedResults (restaurant) {
   var name = restaurant.name;
   var yelpRating = restaurant.rating_image
   var average = (restaurant.average)/ 5 * 100;
-  var content = `  
+  var content = 
+
+
+  `  
        <div class="info">
          <p>`+ name +`</p>
          <a href="`+ restaurant.yelp_url +`" target="_blank"><img id="yelp-logo" style="width: 40px;height: 35px; display:block" src="https://s3-media2.fl.yelpcdn.com/assets/srv0/www_pages/95212dafe621/assets/img/brand_guidelines/yelp-2c.png" ></a> 

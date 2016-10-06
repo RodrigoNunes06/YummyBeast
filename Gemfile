@@ -33,7 +33,7 @@ gem 'bootstrap-sass', '~> 3.3.6'
 # gem 'capistrano-rails', group: :development
 
 # React
-gem 'react-rails'
+# gem 'react-rails'
 
 #Yelp gem
 gem 'yelp'

@@ -1,6 +1,6 @@
 
-var results
-var recommendation = ""
+var results;
+var recommendation = "";
 
 
 
@@ -13,10 +13,10 @@ $(document).on('submit', '.search-form-js', function(event) {
 
   $(document).scrollTop(700)
 
-  createMap(myPosition)
-  createUserMarker(myPosition)
+  createMap(myPosition);
+  createUserMarker(myPosition);
 
-  console.log(recommendation)
+  console.log(recommendation);
 
   $.when(
 
@@ -31,7 +31,7 @@ $(document).on('submit', '.search-form-js', function(event) {
         coordinates: myPosition
       },
       success: function(response) {
-        results = response
+        results = response;
       }
     })
     
@@ -41,15 +41,15 @@ $(document).on('submit', '.search-form-js', function(event) {
     $(results).each(function(index,restaurant) {
       if (restaurant.ratings) {
 
-        handleMergedResults(restaurant)
+        handleMergedResults(restaurant);
         
       } else {
 
-        handleSimpleResults(restaurant) 
+        handleSimpleResults(restaurant); 
    
       }
     })
-    recommendation = false
+    recommendation = false;
   });
 });
 

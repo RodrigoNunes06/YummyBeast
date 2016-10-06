@@ -4,4 +4,4 @@ $(document).on('ready', function() {
    recommendation = "recommend";
   });
   
-})
+});

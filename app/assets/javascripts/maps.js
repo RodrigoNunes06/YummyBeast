@@ -33,7 +33,7 @@ function createMap(position){
     scrollwheel: false
   });
   createUserMarker(position);
-  infowindow = new google.maps.InfoWindow()
+  infowindow = new google.maps.InfoWindow();
 }
 
 function createUserMarker(position) {
@@ -49,7 +49,7 @@ function createUserMarker(position) {
     icon: userIcon,
     animation: google.maps.Animation.DROP,
     draggable: true
-  })
+  });
 
 };
 
@@ -61,7 +61,7 @@ function createMarker(position, content) {
     animation: google.maps.Animation.DROP
   })
 
-  markers.push(marker)
+  markers.push(marker);
 
   google.maps.event.addListener(marker, 'mouseover', function() {
     infowindow.setContent(content);

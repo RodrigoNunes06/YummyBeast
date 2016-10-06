@@ -33,7 +33,13 @@ class YelpService < ApiService
     results_yelp = []
 
     results.each do |restaurant|
-      if restaurant.rating && restaurant.location.coordinate.latitude
+
+      rating_control = restaurant.rating
+      location_control = restaurant.location.coordinate.latitude
+      open_control = restaurant.is_closed
+      review_count = restaurant.review_count
+
+      if rating_control > 0 && location_control && open_control == false && review_count > 3 
         results_yelp.push({
           name: restaurant.name, 
           rating: restaurant.rating, 

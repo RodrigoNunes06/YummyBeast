@@ -29,6 +29,8 @@ $(document).on('submit', '.search-form-js', function(event) {
   
   event.preventDefault();
 
+  deleteMarkers()
+
   $('.recommend').on('click', function () {
    recommendation = "recommend";
   });
@@ -37,7 +39,7 @@ $(document).on('submit', '.search-form-js', function(event) {
 
   $(document).scrollTop(700)
 
-  createMap(myPosition)
+  // createMap(myPosition)
 
   $.when(
 

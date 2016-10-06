@@ -15,10 +15,7 @@ function onLocation(position){
   myPosition = {
     lat: position.coords.latitude,
     lng: position.coords.longitude
-  };
-
- // createMap(myPosition);
- 
+  }; 
 
 }
 

@@ -16,10 +16,10 @@ function onLocation(position){
     lat: position.coords.latitude,
     lng: position.coords.longitude
   };
-  console.log(myPosition);
 
-  createMap(myPosition);
-  // setupAutocomplete();
+ // createMap(myPosition);
+ 
+
 }
 
 function onError(err){
@@ -35,7 +35,6 @@ function createMap(position){
   createUserMarker(position);
   infowindow = new google.maps.InfoWindow()
 }
-
 
 function createUserMarker(position) {
   var userIcon = {
@@ -63,6 +62,7 @@ function createMarker(position, content) {
   })
 
   markers.push(marker)
+
   google.maps.event.addListener(marker, 'mouseover', function() {
     infowindow.setContent(content);
     infowindow.open(map, this);
@@ -93,17 +93,4 @@ function deleteMarkers() {
 
 
 
-// function setupAutocomplete() {
-//   var input = $('#get-places')[0];
-//   var autocomplete = new google.maps.places.Autocomplete(input);
-//   autocomplete.addListener('place_changed', function() {
-//     var place = autocomplete.getPlace();
-//     if (place.geometry.location) {
-//       map.setCenter(place.geometry.location);
-//       map.setZoom(17);
-//       createMarker(place.geometry.location)
-//     }else{
-//       alert("The place has no location..?")
-//     }
-//   });
-// }
+

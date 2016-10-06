@@ -1,6 +1,55 @@
-<h1>Login</h1>
-<%= form_tag '/login' do %>
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yummy Beast</title>
+</head>
+<body>
+
+  <header class="users-header">
+    <div class="container">
+      <div clas="row" >
+      <a href="/">
+        <img src="assets/yummybeast.png" alt="yummybeast" class="yummy">
+        <img class="logo" src="/assets/logo.png" alt="logo">
+      </a>
+      </div>
+    </div>  
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">  
+      </div>
+      <div class=" col-md-6">
+        <form class="form-signin" method="POST">
+          <h2 class="form-signin-heading">Please log in</h2>
+          <label for="inputEmail" class="sr-only">Email address</label>
+          <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required="" autofocus="" >
+          <br>
+          <label for="inputPassword" class="sr-only">Password</label>
+          <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required="" value="password">
+          <input name="authenticity_token" type="hidden" value=<%= form_authenticity_token %> ></input>
+          <br>
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        </form>
+      </div>
+    </div>   
+  </div>
+
+  <footer style="position: absolute; bottom: 0;right:0; left:0">
+    <p>Created by: Rodrigo Nunes</p>
+    <p>Contact information: <a href="mailto:rodrigo.nunes06@gmail.com">
+    rodrigo.nunes06@gmail.com</a>.</p>
+  </footer> 
+
+</body>
+</html>
+
+
+
+    <!-- <h1>Login</h1>
+    <%= form_tag '/login' do %>
+      Email: <%= text_field_tag :email, :class => "form-control" %>
+      Password: <%= password_field_tag :password, :class => "form-control" %>
+      <%= submit_tag "Submit", :class => "btn btn-lg btn-primary btn-block" %>
+    <% end %> -->

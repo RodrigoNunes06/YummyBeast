@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-header {
+.top-header {
   background-color: transparent;
   opacity: 1%;
   width:100%;
@@ -14,11 +14,6 @@ header {
 
 .after-scroll {
   background-color: #e00036;
-}
-
-.logo {
-  position: left top;
-  height: 50px;
 }
 
 .main {
@@ -136,3 +131,4 @@ footer {
   -webkit-font-smoothing: antialiased;
   box-shadow: 0 0 2px 2px #888888;
 }
+

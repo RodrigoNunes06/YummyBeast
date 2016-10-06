@@ -76,11 +76,15 @@ class ApisController < ApplicationController
   end
 
   def merge_coincidence(place1, place2)
+
     if place1[:rating] && place2[:rating]
-     average = (place1[:rating] + place2[:rating])/2 
+
+      average = (place1[:rating] + place2[:rating])/2 
     else
+
       average = place1[:rating] || place2[:rating]
     end
+
     ratings = [
       {rating: place1[:rating], provider: place1[:provider] },
       {rating: place2[:rating], provider: place2[:provider] }

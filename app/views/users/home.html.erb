@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <title>Yummy Beast</title>
 </head>
-<header>
+<header class="top-header">
   <div class="container">
     <div clas="row" >
-      <!-- <img class="logo col-md-6" src="/assets/logo.jpg" alt="logo"> -->
+      <img src="assets/yummybeast.png" alt="yummybeast" class="hidden yummy">
       <nav class="navbar navbar-default navbar-static-top col-md-6">
         <% if current_user == @user %>
           <%= link_to "Login", "/login", :class => 'btn btn-default navbar-btn' %>

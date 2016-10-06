@@ -1,12 +1,47 @@
-<h1>Sign up!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yummy Beast</title>
+</head>
+<body>
 
-<%= form_for :user, url: '/users' do |f| %>
+  <header class="users-header">
+    <div class="container">
+      <div clas="row" >
+      <a href="/">
+        <img src="assets/yummybeast.png" alt="yummybeast" class="yummy">
+        <img class="logo" src="/assets/logo.png" alt="logo">
+      </a>
+      </div>
+    </div>  
+  </header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">  
+      </div>
+      <div class=" col-md-6">
+        <%= form_for :user, url: '/users' do |f|%>
+          <h2 class="form-signin-heading" >Sign up!</h1>
+          Name: <%= f.text_field :username, :class => "form-control" %>
+          Email: <%= f.email_field :email, :class => "form-control" %>
+          Password: <%= f.password_field :password, :class => "form-control" %>
+          Password Confirmation:
+          <%= f.password_field :password_confirmation, :class => "form-control" %>
+          <br>
+          <%= f.submit "Submit", :class => "btn btn-lg btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>   
+  </div>
 
-  Name: <%= f.text_field :username %>
-  Email: <%= f.email_field :email %>
-  Password: <%= f.password_field :password %>
-  Password Confirmation:
-  <%= f.password_field :password_confirmation %>
-  <%= f.submit "Submit" %>
+  <footer style="position: absolute; bottom: 0;right:0; left:0">
+    <p>Created by: Rodrigo Nunes</p>
+    <p>Contact information: <a href="mailto:rodrigo.nunes06@gmail.com">
+    rodrigo.nunes06@gmail.com</a>.</p>
+  </footer> 
 
-<% end %>
+</body>
+</html>
+
+
